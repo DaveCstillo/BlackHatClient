@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.vidalgt.blackhatclient.ServerConnection.Images;
+import com.example.vidalgt.blackhatclient.ServerConnection.httpHandler;
+
 public class MainActivity extends BaseActivity {
 
     private TextView mTextMessage;
@@ -23,7 +26,8 @@ public class MainActivity extends BaseActivity {
                     changeFragment(notif);
                     return true;
                 case R.id.navigation_products:
-                    mTextMessage.setText("Productos");
+                    foodContainer f = new foodContainer();
+                    changeFragment(f);
                     return true;
                 case R.id.navigation_map:
                     Intent intent = new Intent(getActivity(), MapsActivity.class);
@@ -46,6 +50,11 @@ public class MainActivity extends BaseActivity {
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        httpHandler.instance = new httpHandler("https://cafebarsite.000webhostapp.com/");
+        Images.init();
+
+
     }
 
 }

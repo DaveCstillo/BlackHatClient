@@ -5,7 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-public class BaseActivity extends AppCompatActivity {
+import com.example.vidalgt.blackhatclient.Content.foodInfo;
+import com.example.vidalgt.blackhatclient.dummy.DummyContent;
+
+public class BaseActivity extends AppCompatActivity  implements foodDisplayFragment.OnListFragmentInteractionListener{
 
 
 
@@ -29,5 +32,10 @@ public class BaseActivity extends AppCompatActivity {
 
     public FragmentManager getManager() {
         return manager;
+    }
+
+    @Override
+    public void onListFragmentInteraction(foodInfo.foodItem item) {
+
     }
 }

@@ -1,23 +1,23 @@
-package com.example.vidalgt.blackhatclient.serverconnection;
+package com.example.vidalgt.blackhatclient;
 
 import android.os.AsyncTask;
 
-public class BackgroundTask<V> extends AsyncTask<EstudiantesCallable<V>, Void, V>
+public class BackgroundTask<V> extends AsyncTask<estudiantescallable<V>, Void, V>
 {
     Exception exception;
     ParamRunnable<V> doAfter;
-    EstudiantesCallable<V> mTask;
+    estudiantescallable<V> mTask;
 
-    public BackgroundTask(EstudiantesCallable<V> task, ParamRunnable<V> doAfter)
+    public BackgroundTask(estudiantescallable<V> task, ParamRunnable<V> doAfter)
     {
         this.mTask = task;
         this.doAfter = doAfter;
     }
 
     @Override
-    protected  V doInBackground(EstudiantesCallable<V>... params)
+    protected  V doInBackground(estudiantescallable<V>... params)
     {
-        EstudiantesCallable<V> task;
+        estudiantescallable<V> task;
 
         task = params.length > 0 ? params[0] : null ;
         if (task == null){
@@ -48,7 +48,7 @@ public class BackgroundTask<V> extends AsyncTask<EstudiantesCallable<V>, Void, V
     }
 
     //En caso de llamarla con get y no con execute
-    public void setTask(EstudiantesCallable<V> task)
+    public void setTask(estudiantescallable<V> task)
     {
         this.mTask = task;
     }

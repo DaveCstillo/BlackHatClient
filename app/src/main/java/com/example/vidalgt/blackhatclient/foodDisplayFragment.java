@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vidalgt.blackhatclient.Content.foodInfo;
-import com.example.vidalgt.blackhatclient.serverconnection.BackgroundTask;
-import com.example.vidalgt.blackhatclient.serverconnection.httpHandler;
 import com.google.gson.JsonElement;
 
 /**

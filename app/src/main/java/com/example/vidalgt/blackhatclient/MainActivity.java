@@ -1,14 +1,9 @@
 package com.example.vidalgt.blackhatclient;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.example.vidalgt.blackhatclient.serverconnection.Images;
-import com.example.vidalgt.blackhatclient.serverconnection.httpHandler;
 
 public class MainActivity extends BaseActivity {
 

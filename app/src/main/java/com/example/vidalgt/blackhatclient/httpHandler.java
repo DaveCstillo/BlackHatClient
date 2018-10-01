@@ -1,4 +1,4 @@
-package com.example.vidalgt.blackhatclient.serverconnection;
+package com.example.vidalgt.blackhatclient;
 
 
 import android.graphics.Bitmap;

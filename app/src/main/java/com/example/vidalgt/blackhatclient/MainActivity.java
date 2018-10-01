@@ -4,16 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.vidalgt.blackhatclient.ServerConnection.Images;
-import com.example.vidalgt.blackhatclient.ServerConnection.httpHandler;
+import com.example.vidalgt.blackhatclient.serverconnection.Images;
+import com.example.vidalgt.blackhatclient.serverconnection.httpHandler;
 
 public class MainActivity extends BaseActivity {
 
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,7 +33,8 @@ public class MainActivity extends BaseActivity {
                     startActivity(intent);
                     return true;
                 case R.id.navigation_reservations:
-                    mTextMessage.setText("Reservaciones");
+                    Reservaciones reservaciones = new Reservaciones();
+                    changeFragment(reservaciones);
                     return true;
             }
             return false;
@@ -47,7 +46,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

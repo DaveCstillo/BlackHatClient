@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,15 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vidalgt.blackhatclient.Content.foodInfo;
-import com.example.vidalgt.blackhatclient.ServerConnection.BackgroundTask;
-import com.example.vidalgt.blackhatclient.ServerConnection.httpHandler;
-import com.example.vidalgt.blackhatclient.dummy.DummyContent;
-import com.example.vidalgt.blackhatclient.dummy.DummyContent.DummyItem;
-import com.google.gson.JsonArray;
+import com.example.vidalgt.blackhatclient.serverconnection.BackgroundTask;
+import com.example.vidalgt.blackhatclient.serverconnection.httpHandler;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.

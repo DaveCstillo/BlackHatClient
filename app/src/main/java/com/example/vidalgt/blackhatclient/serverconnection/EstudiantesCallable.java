@@ -1,4 +1,4 @@
-package com.example.vidalgt.blackhatclient.ServerConnection;
+package com.example.vidalgt.blackhatclient.serverconnection;
 
 public interface EstudiantesCallable<V>
 {

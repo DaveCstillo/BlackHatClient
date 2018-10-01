@@ -11,11 +11,9 @@ import android.widget.TextView;
 
 import com.example.vidalgt.blackhatclient.Content.foodInfo;
 import com.example.vidalgt.blackhatclient.Content.foodInfo.foodItem;
-import com.example.vidalgt.blackhatclient.ServerConnection.BackgroundTask;
-import com.example.vidalgt.blackhatclient.ServerConnection.Images;
+import com.example.vidalgt.blackhatclient.serverconnection.BackgroundTask;
+import com.example.vidalgt.blackhatclient.serverconnection.Images;
 import com.example.vidalgt.blackhatclient.foodDisplayFragment.OnListFragmentInteractionListener;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

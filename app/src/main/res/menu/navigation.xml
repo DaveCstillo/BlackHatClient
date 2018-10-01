@@ -12,11 +12,6 @@
         android:title="Productos" />
 
     <item
-        android:id="@+id/navigation_map"
-        android:icon="@drawable/ic_place_black"
-        android:title="Mapa" />
-
-    <item
         android:id="@+id/navigation_reservations"
         android:icon="@drawable/ic_reservation"
         android:title="Reservaciones" />

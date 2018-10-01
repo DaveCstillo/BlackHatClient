@@ -2,6 +2,7 @@ package com.example.vidalgt.blackhatclient;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -22,7 +23,7 @@ import com.google.gson.JsonElement;
 public class Reservaciones extends BaseFragment {
 
 
-    Button DateBtn, TimeBtn, cancel, ok;
+    Button DateBtn, TimeBtn, cancel, ok, mapa;
     TextView fechaTxt, horaTxt;
     EditText nombre, correo;
 
@@ -57,6 +58,7 @@ public class Reservaciones extends BaseFragment {
         correo = view.findViewById(R.id.ResCorreoTxt);
         cancel = view.findViewById(R.id.cancelBtn);
         ok = view.findViewById(R.id.OkBtn);
+        mapa = view.findViewById(R.id.mapaBtn);
 
 
         DateBtn.setOnClickListener((v)->{
@@ -81,6 +83,12 @@ public class Reservaciones extends BaseFragment {
         ok.setOnClickListener((v)->{
             callList("setReservacion.php?");
 
+        });
+
+        mapa.setOnClickListener((v)->{
+            Intent intent = new Intent(getActivity(), MapsActivity.class);
+
+            startActivity(intent);
         });
 
      return view;

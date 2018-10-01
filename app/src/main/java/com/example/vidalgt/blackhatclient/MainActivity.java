@@ -27,11 +27,6 @@ public class MainActivity extends BaseActivity {
                     foodContainer f = new foodContainer();
                     changeFragment(f);
                     return true;
-                case R.id.navigation_map:
-                    Intent intent = new Intent(getActivity(), MapsActivity.class);
-
-                    startActivity(intent);
-                    return true;
                 case R.id.navigation_reservations:
                     Reservaciones reservaciones = new Reservaciones();
                     changeFragment(reservaciones);

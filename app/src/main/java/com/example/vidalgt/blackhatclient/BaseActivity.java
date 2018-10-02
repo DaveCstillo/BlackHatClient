@@ -5,10 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.vidalgt.blackhatclient.Content.feedContent;
 import com.example.vidalgt.blackhatclient.Content.foodInfo;
 import com.example.vidalgt.blackhatclient.dummy.DummyContent;
 
-public class BaseActivity extends AppCompatActivity  implements foodDisplayFragment.OnListFragmentInteractionListener{
+public class BaseActivity extends AppCompatActivity  implements foodDisplayFragment.OnListFragmentInteractionListener, notificationContentFragment.OnListFragmentInteractionListener{
 
 
 
@@ -36,6 +37,11 @@ public class BaseActivity extends AppCompatActivity  implements foodDisplayFragm
 
     @Override
     public void onListFragmentInteraction(foodInfo.foodItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(feedContent.feedItem item) {
 
     }
 }

@@ -15,7 +15,7 @@ public class MainActivity extends BaseActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Notificaciones notif = new Notificaciones();
+                    notificationContentFragment notif = new notificationContentFragment();
                     changeFragment(notif);
                     return true;
                 case R.id.navigation_products:
@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity {
 
         httpHandler.instance = new httpHandler("https://cafebarsite.000webhostapp.com/");
         Images.init();
+        notificationContentFragment notif = new notificationContentFragment();
+        changeFragment(notif);
 
 
     }

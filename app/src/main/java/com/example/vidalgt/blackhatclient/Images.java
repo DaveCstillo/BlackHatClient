@@ -16,7 +16,11 @@ public class Images
     }
 
     public static void newApi(String extencion){
-        Images.imagesApi = new httpHandler(("https://cafebarsite.000webhostapp.com/Productos/"+extencion+"/"));
+        Images.imagesApi = new httpHandler("https://cafebarsite.000webhostapp.com/Productos/"+extencion+"/");
+    }
+
+    public static void feedApi(){
+        Images.imagesApi = new httpHandler("https://cafebarsite.000webhostapp.com/uploads/");
     }
 
 

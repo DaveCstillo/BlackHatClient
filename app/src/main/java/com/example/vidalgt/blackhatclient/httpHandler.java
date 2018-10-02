@@ -59,6 +59,7 @@ public class httpHandler {
     {
         String address = useBaseUrl ? this.url + path : path;
         URL url = new URL(address);
+        Log.d("URLImage",url.toString());
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
         connection.setDoInput(true);
         connection.connect();

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.vidalgt.blackhatclient"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -41,11 +41,20 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.4'
 
 
+
+    //firebase implementation
+    implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.0.0'
-    implementation 'com.google.firebase:firebase-crash:9.4.0'
-    implementation 'com.google.firebase:firebase-storage:10.0.1'
+    implementation 'com.google.firebase:firebase-crash:16.0.1'
+    implementation 'com.google.firebase:firebase-storage:16.0.1'
+
+
+
+    //notification implementation
+    implementation 'com.android.support:support-compat:26.1.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

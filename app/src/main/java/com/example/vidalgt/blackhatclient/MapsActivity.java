@@ -32,7 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         FloatingActionButton Navfab = (FloatingActionButton) findViewById(R.id.navigationFAB) ;
         Navfab.setOnClickListener((v)->{
-            Uri gmmIntentUri = Uri.parse("geo:14.5349551, -90.459298");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=14.5349551, -90.459298(BlackHat Cafe)");
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             if (mapIntent.resolveActivity(getPackageManager()) != null) {

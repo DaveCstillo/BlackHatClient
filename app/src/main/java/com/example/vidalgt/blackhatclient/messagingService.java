@@ -1,14 +1,61 @@
 package com.example.vidalgt.blackhatclient;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.nio.channels.Channel;
+
 public class messagingService extends FirebaseMessagingService {
+
+    String CHANNEL_ID = "44542156";
+    NotificationManager nm;
+    Notification notif;
+    static String ns = Context.NOTIFICATION_SERVICE;
+    Notification.Builder builder;
+
     public messagingService() {
+
+
     }
 
+    public void sendNotif(String titulo, String mensaje){
+        nm = (NotificationManager) getSystemService(ns);
+        notif = getDefaultNotification(builder, titulo, mensaje);
+        nm.notify(1,notif);
+    }
+
+
+    public Notification getDefaultNotification(Notification.Builder builder, String titulo,String mensaje){
+
+        Uri defaultSong = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+        builder = new Notification.Builder(this);
+
+        builder
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setWhen(System.currentTimeMillis())
+                .setContentTitle(titulo)
+                .setContentText(mensaje)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .setSound(defaultSong);
+        return builder.build();
+    }
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 String TAG = "Firebase Message";
@@ -32,7 +79,8 @@ String TAG = "Firebase Message";
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+//            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            sendNotif("Nueva Promocion",remoteMessage.getNotification().getBody());
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -43,6 +91,22 @@ String TAG = "Firebase Message";
     }
 
     private void handleNow(){
+    }
+
+    private void createNotificationChannel(){
+
+
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,name,importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            assert notificationManager != null;
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
 }

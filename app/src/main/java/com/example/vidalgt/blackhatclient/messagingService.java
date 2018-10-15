@@ -20,31 +20,30 @@ import java.nio.channels.Channel;
 
 public class messagingService extends FirebaseMessagingService {
 
-    String CHANNEL_ID = "44542156";
+
     NotificationManager nm;
     Notification notif;
     static String ns = Context.NOTIFICATION_SERVICE;
-    Notification.Builder builder;
+
+    Uri defaultSong = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
     public messagingService() {
-
-
     }
 
     public void sendNotif(String titulo, String mensaje){
+        Notification.Builder builder = new Notification.Builder(this);
         nm = (NotificationManager) getSystemService(ns);
         notif = getDefaultNotification(builder, titulo, mensaje);
         nm.notify(1,notif);
     }
 
 
-    public Notification getDefaultNotification(Notification.Builder builder, String titulo,String mensaje){
 
-        Uri defaultSong = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    public Notification getDefaultNotification(Notification.Builder builder, String titulo,String mensaje){
         Intent intent = new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
-        builder = new Notification.Builder(this);
+
 
         builder
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -83,6 +82,7 @@ String TAG = "Firebase Message";
             sendNotif("Nueva Promocion",remoteMessage.getNotification().getBody());
         }
 
+        sendNotif("Nueva Promocion 2",remoteMessage.getNotification().getBody());
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
 
@@ -93,20 +93,5 @@ String TAG = "Firebase Message";
     private void handleNow(){
     }
 
-    private void createNotificationChannel(){
-
-
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,name,importance);
-            channel.setDescription(description);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            assert notificationManager != null;
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 
 }
